@@ -18,7 +18,7 @@ This repository contains the code for a Python program which converts the genera
   Fig. 2: Enter the Name/Location of the Netlist:
 </p>
 4. After pressing 'Enter' assuming that the entered file is present the cmd will prompt you asking if you want to manually enter the Lengths and Widths of NMOS and PMOS.
-5. If you input Y or y  you will be prompted to enter the PMOS Width, Length and then NMOS Width, Length.'
+5. If you input Y or y  you will be prompted to enter the PMOS Width, Length and then NMOS Width, Length.
  <p align="center">
   <img src="Images/enter_length_width.JPG"></br>
   Fig. 3: Enter the Widths and Lengths of MOSFETS:
@@ -26,7 +26,7 @@ This repository contains the code for a Python program which converts the genera
 6. If you do not wish to enter the Widths and Lengths for MOSFETS you can input n or N which will assign generic values for PMOS and NMOS as PMOS(w=1.29 l=0.18), NMOS(w=0.5 l=0.18)
 7. On giving the inputs the Program will run successfully giving a message on the screen as "FILE CONVERTED SUCCESSFULLY!!"
 <p align="center">
-  <img src="Images/successful_conversion.JPG"></br>
+  <img src="Images/successful_file_conversion.JPG"></br>
   Fig. 4: File Conversion Successful:
 </p>
 
