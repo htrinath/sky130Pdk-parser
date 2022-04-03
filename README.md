@@ -48,8 +48,8 @@ This repository contains the code for a Python program which converts the genera
 2. Full Adder Circuit taken from eSIM completed circuits: <a href='full_adder.cir.out'>Here</a></br>
 
 # Output Files obtained:
-1. 6T RAM Cell: <a href='Output Files/6t_ram_cell.cir.out'>Here</a></br>
-2. Full Adder Circuit: <a href='Output Files/full_adder.cir.out'>Here</a></br>
+1. 6T RAM Cell: <a href='output files/6t_ram_cell.cir.out'>Here</a></br>
+2. Full Adder Circuit: <a href='output files/full_adder.cir.out'>Here</a></br>
 
 # Author:
 • Trinath Harikrishna, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
