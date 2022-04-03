@@ -1,0 +1,28 @@
+* d:\analog_vlsi\mixed_signal_projects\6t_ram_cell\6t_ram_cell.cir
+
+.lib "sky130_fd_pr/models/sky130.lib.spice" tt
+ 
+xm3 net-_m3-pad1_ q net-_m2-pad1_ net-_m3-pad1_ sky130_fd_pr__pfet_01v8 W=1.29 L=0.18
+xm5 net-_m3-pad1_ net-_m2-pad1_ q net-_m3-pad1_ sky130_fd_pr__pfet_01v8 W=1.29 L=0.18
+xm2 net-_m2-pad1_ q gnd gnd sky130_fd_pr__nfet_01v8 W=0.5 L=0.18
+xm4 q net-_m2-pad1_ gnd gnd sky130_fd_pr__nfet_01v8 W=0.5 L=0.18
+xm1 q wl bl gnd sky130_fd_pr__nfet_01v8 W=0.5 L=0.18
+xm6 blb wl net-_m2-pad1_ gnd sky130_fd_pr__nfet_01v8 W=0.5 L=0.18
+v3  bl gnd pulse(0 1.8 1u 1p 1p 1u 2u)
+v4  blb gnd pulse(0 1.8 0 1p 1p 1u 2u)
+v1 net-_m3-pad1_ gnd  dc 1.8
+v2  wl gnd pulse(0 1.8 0 1p 1p 5u 10u)
+* u1  wl plot_v1
+* u2  bl plot_v1
+* u3  q plot_v1
+* u4  blb plot_v1
+.tran 1e-06 10e-06 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(wl)+8 v(bl)+6 v(blb)+4 v(q)+2
+.endc
+.end
