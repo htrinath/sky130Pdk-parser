@@ -1,0 +1,60 @@
+* c:\esimprojects\abhinav_goel_circuit\abhinav_goel_circuit.cir
+
+.include PMOS-180nm.lib
+.include NMOS-180nm.lib
+m3 net-_m3-pad1_ ain net-_m10-pad3_ net-_m10-pad3_ CMOSP W=2.50u L=2.50u M=1
+m6 net-_m10-pad1_ ain net-_m6-pad3_ net-_m6-pad3_ CMOSP W=2.50u L=2.50u M=1
+m10 net-_m10-pad1_ bin net-_m10-pad3_ net-_m10-pad3_ CMOSP W=2.50u L=2.50u M=1
+m12 net-_m12-pad1_ cin net-_m10-pad3_ net-_m10-pad3_ CMOSP W=2.50u L=2.50u M=1
+m15 net-_m12-pad1_ ain net-_m10-pad3_ net-_m10-pad3_ CMOSP W=2.50u L=2.50u M=1
+m17 net-_m12-pad1_ bin net-_m17-pad3_ net-_m17-pad3_ CMOSP W=2.50u L=2.50u M=1
+m19 net-_m19-pad1_ ain net-_m10-pad3_ net-_m10-pad3_ CMOSP W=2.50u L=2.50u M=1
+m23 net-_m23-pad1_ bin net-_m19-pad1_ net-_m19-pad1_ CMOSP W=2.50u L=2.50u M=1
+m24 net-_m13-pad3_ cin net-_m23-pad1_ net-_m23-pad1_ CMOSP W=2.50u L=2.50u M=1
+m14 net-_m13-pad3_ net-_m13-pad2_ net-_m12-pad1_ net-_m12-pad1_ CMOSP W=2.50u L=2.50u M=1
+m4 net-_m13-pad2_ bin net-_m3-pad1_ net-_m3-pad1_ CMOSP W=2.50u L=2.50u M=1
+m8 net-_m13-pad2_ cin net-_m10-pad1_ net-_m10-pad1_ CMOSP W=2.50u L=2.50u M=1
+m2 net-_m1-pad1_ bin net-_m13-pad2_ net-_m13-pad2_ CMOSN W=2.50u L=2.50u M=1
+m7 net-_m5-pad1_ cin net-_m13-pad2_ net-_m13-pad2_ CMOSN W=2.50u L=2.50u M=1
+m13 net-_m11-pad1_ net-_m13-pad2_ net-_m13-pad3_ net-_m13-pad3_ CMOSN W=2.50u L=2.50u M=1
+m1 net-_m1-pad1_ ain gnd gnd CMOSN W=2.50u L=2.50u M=1
+m9 net-_m5-pad1_ bin gnd gnd CMOSN W=2.50u L=2.50u M=1
+m16 net-_m11-pad1_ ain gnd gnd CMOSN W=2.50u L=2.50u M=1
+m18 net-_m11-pad1_ bin gnd gnd CMOSN W=2.50u L=2.50u M=1
+m20 net-_m13-pad3_ cin net-_m20-pad3_ net-_m20-pad3_ CMOSN W=2.50u L=2.50u M=1
+m21 net-_m20-pad3_ bin net-_m21-pad3_ net-_m21-pad3_ CMOSN W=2.50u L=2.50u M=1
+m22 net-_m21-pad3_ ain gnd gnd CMOSN W=2.50u L=2.50u M=1
+m27 net-_m10-pad3_ net-_m13-pad3_ sum sum CMOSP W=2.50u L=2.50u M=1
+m26 sum net-_m13-pad3_ gnd gnd CMOSN W=2.50u L=2.50u M=1
+m28 net-_m10-pad3_ net-_m13-pad2_ carry carry CMOSP W=2.50u L=2.50u M=1
+m25 carry net-_m13-pad2_ gnd gnd CMOSN W=2.50u L=2.50u M=1
+v4  net-_m10-pad3_ gnd 5
+v3  ain gnd pulse(0 5 0 0 0 5m 20m)
+v2  bin gnd pulse(0 7 0 0 0 10m 20m)
+v1  cin gnd pulse(0 10 0 0 0 15m 20m)
+r2  ain gnd 10k
+r3  bin gnd 10k
+r1  cin gnd 10k
+r4  sum gnd 10k
+r5  carry gnd 10k
+* u3  ain plot_v1
+* u1  bin plot_v1
+* u2  cin plot_v1
+* u5  carry plot_v1
+* u4  sum plot_v1
+m5 net-_m5-pad1_ ain gnd gnd CMOSN W=2.50u L=2.50u M=1
+m11 net-_m11-pad1_ cin gnd gnd CMOSN W=2.50u L=2.50u M=1
+.tran 0.05e-03 100e-03 0e-03
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(ain)
+plot v(bin)
+plot v(cin)
+plot v(carry)
+plot v(sum)
+.endc
+.end
