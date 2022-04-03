@@ -32,14 +32,14 @@ def replaceMosfetLabel(line, lines):
     return line
 
 def configurePmosWbyL(line, lines, width, length):
-    mos = re.search(r'CMOSP [w,W]=\d+\.*\d+[a-z] [l,L]=\d+\.*\d+[a-z] [m,M]=\d', line)
+    mos = re.search(r'CMOSP [w,W]=\d+\.*\d*[a-z] [l,L]=\d+\.*\d*[a-z] [m,M]=\d', line)
     if mos!= None:
         pmos = 'sky130_fd_pr__pfet_01v8 W='+ width + ' L='+ length
         line = replaceTextInFile(line,lines,mos.group(),pmos)
     return line
 
 def configureNmosWbyL(line, lines, width, length):
-    mos = re.search(r'CMOSN [w,W]=\d+\.*\d+[a-z] [l,L]=\d+\.*\d+[a-z] [m,M]=\d', line)
+    mos = re.search(r'CMOSN [w,W]=\d+\.*\d*[a-z] [l,L]=\d+\.*\d*[a-z] [m,M]=\d', line)
     if mos!= None:
         nmos = 'sky130_fd_pr__nfet_01v8 W=' + width + ' L=' + length
         line = replaceTextInFile(line,lines,mos.group(),nmos)
